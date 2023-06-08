@@ -22,7 +22,6 @@ Add Category - Ecommerce
                 </div>
                 @endif
 
-
                 <form action="{{route('storecategory')}}" method="POST">
                     @csrf
                     <div class="row mb-3">
