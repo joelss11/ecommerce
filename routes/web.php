@@ -37,6 +37,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
         Route::post('/add-product-to-cart', 'AddProductToCart')->name('addproducttocart');
         Route::get('/shipping-address', 'GetShippingAddress')->name('shippingaddress');
         Route::post('/add-shipping-address', 'AddShippingAddress')->name('addshippingaddress');
+        Route::post('/place-order', 'PlaceOrder')->name('placeorder');
         Route::get('/checkout', 'Checkout')->name('checkout');
         Route::get('/user-profile', 'UserProfile')->name('userprofile');
         Route::get('/user-profile/pending-orders', 'PendingOrders')->name('pendingorders');
@@ -52,11 +53,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', 'role:user'])->name('dashboard');
 
-//Route::middleware('auth')->group(function () {
-//  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-// Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-//});
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
@@ -95,6 +96,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
     Route::controller(OrderController::class)->group(function () {
         Route::get('/admin/pending-order', 'Index')->name('pendingorder');
+        Route::post('/admin/orders-approve/{id}', 'ApproveOrder')->name('approveorder');
     });
 });
 
