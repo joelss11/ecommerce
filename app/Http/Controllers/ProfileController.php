@@ -17,8 +17,10 @@ class ProfileController extends Controller
     public function edit(Request $request): View
     {
 
+        $user = $request->user(); // Obtener el usuario actual autenticado
+
         return view('profile.edit', [
-            'user' => $request->user(),
+            'user' => $user, // Pasar la variable $user a la vista
         ]);
     }
 
