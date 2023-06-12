@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,10 @@ Route::controller(ClientController::class)->group(function () {
     Route::get('/category/{id}/{slug}', 'CategoryPage')->name('category');
     Route::get('/product-details/{id}/{slug}', 'SingleProduct')->name('singleproduct');
     Route::get('/new-release', 'NewRelease')->name('newrelease');
+});
+
+Route::controller(SearchController::class)->group(function () {
+    Route::get('/search', 'SearchProduct')->name('search');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {

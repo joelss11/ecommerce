@@ -14,7 +14,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Eflyer</title>
+      <title>Home</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -46,30 +46,14 @@
       <!-- banner bg main start -->
       <div class="banner_bg_main">
           <!-- header top section start -->
-          <div class="container">
-              <div class="header_section_top">
-                  <div class="row">
-                      <div class="col-sm-12">
-                          <div class="custom_menu">
-                              <ul>
-                                  <li><a href="#">Best Sellers</a></li>
-                                  <li><a href="">Gift Ideas</a></li>
-                                  <li><a href="{{ route('newrelease') }}">New Releases</a></li>
-                                  <li><a href="{{ route('todaysdeal') }}">Today's Deals</a></li>
-                                  <li><a href="{{ route('customerservice') }}">Customer Service</a></li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
+
           <!-- header top section start -->
           <!-- logo section start -->
           <div class="logo_section">
               <div class="container">
                   <div class="row">
                       <div class="col-sm-12">
-                          <div class="logo"><a href="index.html"><img src="{{ asset('home/images/logo.png') }}"></a></div>
+                          <div class="logo"><a href="{{route('Home')}}"><img style="height: 180px; width: 600px;" src="{{ asset('home/images/logofinal-removebg-preview.png') }}"></a></div>
                       </div>
                   </div>
               </div>
@@ -100,14 +84,16 @@
                       </div>
                       <div class="main">
                           <!-- Another variation with a button -->
-                          <div class="input-group">
-                              <input type="text" name="" class="form-control" placeholder="Search this blog">
-                              <div class="input-group-append">
-                                  <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
-                                      <i class="fa fa-search"></i>
-                                  </button>
+                          <form action="{{route('search')}}" method="GET">
+                              <div class="input-group">
+                                  <input type="search" name="search" value="" class="form-control" placeholder="Search this blog">
+                                  <div class="input-group-append">
+                                      <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                                          <i class="fa fa-search"></i>
+                                      </button>
+                                  </div>
                               </div>
-                          </div>
+                          </form>
                       </div>
                       <div class="header_box">
                           <div class="lang_box ">
@@ -123,13 +109,14 @@
                           </div>
                           <div class="login_menu">
                               <ul>
-                                  <li><a href="#">
+                                  <li><a href="{{ route('pendingorders') }}">
                                           <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                           <span class="padding_10">Cart</span></a>
                                   </li>
-                                  <li><a href="#">
+                                  <li><a href="">
                                           <i class="fa fa-user" aria-hidden="true"></i>
-                                          <span class="padding_10">Cart</span></a>
+                                          <span class="padding_10">
+                                              Log in</span></a>
                                   </li>
                               </ul>
                           </div>
@@ -173,7 +160,7 @@
       <!-- copyright section start -->
       <div class="copyright_section">
           <div class="container">
-              <p class="copyright_text">© 2020 All Rights Reserved. Design by <a href="https://html.design">Free html Templates</a></p>
+              <p class="copyright_text">© 2023 All Rights Reserved. Design by <a href="https://html.design">Joel Solera</a></p>
           </div>
       </div>
       <!-- copyright section end -->

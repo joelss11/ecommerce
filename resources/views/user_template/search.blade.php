@@ -3,10 +3,10 @@
 <div class="fashion_section">
     <div id="main_slider">
         <div class="container">
-            <h1 class="fashion_taital">All Products</h1>
+            <h1 class="fashion_taital">Product</h1>
             <div class="fashion_section_2">
                 <div class="row">
-                    @foreach ($allproducts as $product )
+                    @foreach ($searchProducts as $product )
                     <div class="col-lg-4 col-sm-4">
                         <div class="box_main">
                             <h4 class="shirt_text">{{$product->product_name}}</h4>
